@@ -7,14 +7,17 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="app"> <h1>Hello {{ name }}</h1></div>
-  <input type="text" v-on:input="changeName">
+  <div id="app"> <h1>Hello {{ name }}</h1>
+    <input type="text" v-on:input="changeName">
+    <a v-bind:href="url">{{ url }}</a>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     new Vue({
       el:'#app',
       data:{
-        name:'Vue!'
+        name:'Vue!',
+        url:'https://www.google.com/'
       },
       methods:{
         changeName:function(event){
