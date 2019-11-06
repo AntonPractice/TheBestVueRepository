@@ -10,6 +10,11 @@
   <div id="app"> <h1>Hello {{ name }}</h1>
     <input type="text" v-on:input="changeName">
     <a v-bind:href="url">{{ url }}</a>
+    <h1>Счетчик = {{counter}}</h1>
+    <button v-on:click="count">Увелич</button>
+    <hr>
+    <h1 v-on:mouseover="onHover">Счетчик42 = {{counter2}}</h1>
+    <button v-on:click="counter2++">Увелич</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -17,11 +22,19 @@
       el:'#app',
       data:{
         name:'Vue!',
-        url:'https://www.google.com/'
+        url:'https://www.google.com/',
+        counter: 0,
+        counter2:0
       },
       methods:{
         changeName:function(event){
           this.name=event.target.value
+        },
+        count:function(){
+          this.counter++
+        },
+        onHover:function(event){
+          event.target.style.color = 'blue';
         }
       }
     });
