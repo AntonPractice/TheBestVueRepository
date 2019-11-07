@@ -11,7 +11,8 @@
     <input type="text" v-on:input="changeName">
     <a v-bind:href="url">{{ url }}</a>
     <h1>Счетчик = {{counter}}</h1>
-    <button v-on:click="count">Увелич</button>
+    <button v-on:click="count(5)">Увеличь на 5</button>
+    <button v-on:click="count(10)">Увеличь на 10</button>
     <hr>
     <h1 v-on:mouseover="onHover">Счетчик42 = {{counter2}}</h1>
     <button v-on:click="counter2++">Увелич</button>
@@ -30,8 +31,8 @@
         changeName:function(event){
           this.name=event.target.value
         },
-        count:function(){
-          this.counter++
+        count:function(num){
+          this.counter+=num
         },
         onHover:function(event){
           event.target.style.color = 'blue';
