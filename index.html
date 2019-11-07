@@ -19,6 +19,7 @@
     <hr>
     <h1 v-on:mouseover="onHover">Счетчик42 = {{counter2}}</h1>
     <button v-on:click="counter2++">Увелич</button>
+    <input type="text" v-on:keyup.enter="alertVal">
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -45,6 +46,9 @@
         },
         onHover:function(event){
           event.target.style.color = 'blue';
+        },
+        alertVal:function (event) {
+          alert(event.target.value)
         }
       }
     });
