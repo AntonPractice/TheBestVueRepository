@@ -10,15 +10,15 @@
   <div id="app"> <h1>Hello {{ name }}</h1>
     <input type="text" v-on:input="changeName">
     <h2 v-on:mousemove="handlerMouseMove">X:{{x}}/Y:{{y}} <span v-on:mousemove.stop="">--------------------------------</span> </h2>
-    <!-- <a v-bind:href="url" target="_blank" v-on:click.prevent="">{{ url }}</a> -->
-    <a v-bind:href="url" target="_blank" v-on:click.prevent="">{{ url }} </a>
+    <a :href="url" target="_blank">{{ url }}</a>
+    <a :href="url" target="_blank" v-on:click.prevent="">{{ url }} </a>
     <!-- <a v-bind:href="url">{{ url }}</a> -->
     <h1>Счетчик = {{counter}}</h1>
-    <button v-on:click="count(5)">Увеличь на 5</button>
-    <button v-on:click="count(10)">Увеличь на 10</button>
+    <button @click="count(5)">Увеличь на 5</button>
+    <button @click="count(10)">Увеличь на 10</button>
     <hr>
-    <h1 v-on:mouseover="onHover">Счетчик42 = {{counter2}}</h1>
-    <button v-on:click="counter2++">Увелич</button>
+    <h1 @mouseover="onHover">Счетчик42 = {{counter2}}</h1>
+    <button @click="counter2++">Увелич</button>
     <input type="text" v-on:keyup.enter="alertVal">
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
