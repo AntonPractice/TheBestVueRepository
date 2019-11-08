@@ -20,6 +20,9 @@
     <h1 @mouseover="onHover">Счетчик42 = {{counter2}}</h1>
     <button @click="counter2++">Увелич</button>
     <input type="text" v-on:keyup.enter="alertVal">
+    <hr>
+    <input type="text" v-model.lazy="inputVal">
+    <h2>{{ inputVal}}</h2>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -31,7 +34,8 @@
         counter: 0,
         counter2:0,
         x:0,
-        y:0
+        y:0,
+        inputVal:'DefaultValue'
       },
       methods:{
         handlerMouseMove:function(event){
