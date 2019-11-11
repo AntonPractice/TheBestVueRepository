@@ -23,6 +23,21 @@
     <hr>
     <input type="text" v-model.lazy="inputVal">
     <h2>{{ inputVal}}</h2>
+    <hr>
+    <h2 v-if="type==='a'">I am visible!</h2>
+    <h2 v-else-if="type==='b'">I am not visible!</h2>
+    <h2 v-else-if="type==='c'">I am not visible!!!!!!</h2>
+    <h2 v-else>I am not visible!!!!!!!!!!!!!!!!!!</h2>
+    <button @click="isVissible =!isVissible">Click</button>
+    <input type="text" v-model="type">
+    <template v-if="isVissible">  
+      <h2>Tittle</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, expedita!</p>
+    </template>  
+    <template v-else>  
+      <h2 style="color:red">Tittle</h2>
+      <p style="color:blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, accusantium. Maxime repellat nesciunt, temporibus sapiente provident porro totam non explicabo reprehenderit labore reiciendis voluptatem natus magni dolore dolor blanditiis itaque?</p>
+    </template> 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -35,7 +50,9 @@
         counter2:0,
         x:0,
         y:0,
-        inputVal:'DefaultValue'
+        inputVal:'DefaultValue',
+        isVissible:true,
+        type:'a'
       },
       methods:{
         handlerMouseMove:function(event){
