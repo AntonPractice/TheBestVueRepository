@@ -38,6 +38,23 @@
       <h2 style="color:red">Tittle</h2>
       <p style="color:blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, accusantium. Maxime repellat nesciunt, temporibus sapiente provident porro totam non explicabo reprehenderit labore reiciendis voluptatem natus magni dolore dolor blanditiis itaque?</p>
     </template> 
+    <hr>
+    <ul>
+      <li v-for="(person, index) of people">{{index+1}}. {{person.name}}  <b>{{person.age}}</b></li>
+    </ul>
+    <hr>
+    <ol>
+      <li v-for="num of 10">{{num}}</li>
+    </ol>
+    <hr>
+    <ul>
+      <li v-for="(value,key, index) in guy">{{index}}<b>{{key}}</b>:{{value}}</li>
+    </ul>
+    <hr>
+    <h2>Counter {{counter3}}</h2>
+    <h3>{{result()}}</h3>
+    <button @click="add">Add</button>
+    <button @click="sub">Sub</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -48,11 +65,17 @@
         url:'https://www.google.com/',
         counter: 0,
         counter2:0,
+        counter3:0,
         x:0,
         y:0,
         inputVal:'DefaultValue',
         isVissible:true,
-        type:'a'
+        type:'a',
+        people:[{name:'Kulik', age:20},
+                {name:'Killer', age:18},
+                {name:'Good Boy', age:38},
+                {name:'Best choice', age:33}],
+        guy:{name:'Killer', age:18, femail:'man', work:true}  
       },
       methods:{
         handlerMouseMove:function(event){
@@ -70,6 +93,15 @@
         },
         alertVal:function (event) {
           alert(event.target.value)
+        },
+        sub:function () {
+          this.counter3--
+        },
+        add:function (){
+          this.counter3++
+        },
+        result:function (){          
+          return this.counter3>3 ? 'Больше 3' : 'Меньше 3'
         }
       }
     });
